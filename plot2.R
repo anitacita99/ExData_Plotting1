@@ -2,6 +2,11 @@ install.packages("pacman")
 # check to see if packages are installed - if not, install them
 pacman::p_load(ggplot2)
 
+# download and read data
+source("load_data.R")
+download_data()
+df <- create_df()
+
 # create Global Active Power by Time line graph with no legend
 ggplot(df, aes(x = Date + Time, y = Global_active_power)) +
   geom_line() +

@@ -2,6 +2,11 @@ install.packages("pacman")
 # check to see if packages are installed - if not, install them
 pacman::p_load(tidyr, ggplot2, gridExtra)
 
+# download and read data
+source("load_data.R")
+download_data()
+df <- create_df()
+
 # plot of Global Active Power by Time
 active <- ggplot(df, aes(x = Date + Time, y = Global_active_power)) +
   geom_line() +

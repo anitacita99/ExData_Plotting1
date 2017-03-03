@@ -2,6 +2,11 @@ install.packages("pacman")
 # check to see if packages are installed - if not, install them
 pacman::p_load(tidyr, ggplot2)
 
+# download and read data
+source("load_data.R")
+download_data()
+df <- create_df()
+
 # gather data by meter type
 data_by_meter <- gather(df, value = "value", key = "type", Sub_metering_1:Sub_metering_3)
 
